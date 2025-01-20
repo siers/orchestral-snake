@@ -20,7 +20,7 @@ var Game = {
   Fruits: [], //Game bonus fruits (loaded in loader.js)
   PreviousScoreTime: new Date().getTime(), //Last score time, not used
   LocalStorage: localStorageCheck(), //Check if browser has localstorage enabled
-  BorderActive: false, //Set border active or not
+  BorderActive: true, //Set border active or not
 
   //Games methods
   Init: function(){
@@ -151,11 +151,11 @@ var Game = {
 
     if(Game.BorderActive){
       //If border is active move snake on the other side
-      if(headx == -1){
+      if(headx < 0){
         headx = width/cw;
       } else if(headx >= width/cw){
         headx = 0;
-      } else if(heady == -1){
+      } else if(heady < 0){
         heady = height/cw;
       } else if(heady >= height/cw){
         heady = 0;
@@ -210,8 +210,8 @@ var Game = {
   //Check collision on border
   CheckBorderCollision: function (x, y) {
     var cw = Settings.BlockSize;
-    if(x == -1 || x >= width/cw
-      || y == -1 || y >= height/cw){
+    if(x < 0 || x >= width/cw
+      || y < 0 || y >= height/cw){
       //Checks Snake's collisions on border
       return true;
     }
@@ -321,18 +321,15 @@ var Game = {
     canvas.height = h;
     setCanvasDPI(canvas, dpi);
   }
-
-
 };
 
-if($(window).width() > 500){
-  console.log('Desktop version');
-  Game.UpdateDimensions(500, 360, 300);
-} else {
-  console.log('Mobile version');
-  Game.UpdateDimensions(window.innerWidth - 20, 300, 150);
-  Settings.BlockSize = 20;
-}
+Game.UpdateDimensions(
+  Math.round($(window).width() / Settings.BlockSize) * Settings.BlockSize,
+  Math.round($(window).height() / Settings.BlockSize) * Settings.BlockSize,
+  300
+);
+
+Settings.BlockSize = 20;
 
 Game.Init();
 
@@ -452,8 +449,8 @@ $(document).on('keydown', function(e){
     }
     return false;
   }
-  else if(c == 13) {
-    //Press Enter
+  else if(c == 13 || c == 32) {
+    //Press Enter or Space
     if(Game.Paused){
       Game.Play();
     }

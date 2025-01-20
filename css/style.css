@@ -19,12 +19,12 @@ body#main {
     -o-background-size: cover;
 }
 
-div#container {
-	display: none;
-    width: 75%;
-    margin: 0 auto;
-	position: relative;
-}
+/* div#container { */
+/* 	display: none; */
+/*     width: 75%; */
+/*     margin: 0 auto; */
+/* 	position: relative; */
+/* } */
 
 a.github-ribbon {
     position: fixed;
@@ -96,38 +96,41 @@ div#bar {
 /* GAME
 -------------------------------------------------- */
 
-#canvas-container {
-	margin: 0 auto;
-    overflow: hidden;
-    width: 85%;
-    max-height: 360px;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-drag: none;
-    line-height: 0px;
-    position: relative;
-    max-width: 500px;
-}
+/* #canvas-container { */
+/* 	margin: 0 auto; */
+/*     overflow: hidden; */
+/*     width: 85%; */
+/*     max-height: 360px; */
+/*     user-select: none; */
+/*     -webkit-user-select: none; */
+/*     -moz-user-select: none; */
+/*     -ms-user-select: none; */
+/*     -o-user-select: none; */
+/*     -webkit-touch-callout: none; */
+/*     -webkit-user-drag: none; */
+/*     line-height: 0px; */
+/*     position: relative; */
+/*     max-width: 500px; */
+/* } */
 
 canvas#canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
 	background: url(../img/yellow.jpg);
 	border-radius: 5px;
 }
 
-div#canvas-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.44);
-    border-radius: 5px;
-    color: white;
-}
+/* div#canvas-overlay { */
+/*     position: absolute; */
+/*     top: 0; */
+/*     left: 0; */
+/*     width: 100%; */
+/*     height: 100%; */
+/*     background-color: rgba(0, 0, 0, 0.44); */
+/*     border-radius: 5px; */
+/*     color: white; */
+/* } */
 
 div#overlay-inner {
     width: 84%;
@@ -148,9 +151,9 @@ span#overlay-text {
     margin-top: 1.1em;
 }
 
-div#game-container {
-    position: relative;
-}
+/* div#game-container { */
+/*     position: relative; */
+/* } */
 
 div#score-container, div#speed-container, div#border-selection-container {
     position: absolute;
@@ -160,6 +163,7 @@ div#score-container, div#speed-container, div#border-selection-container {
     color: white;
     width: 120px;
     text-align: center;
+    display: none;
 }
 
 div#border-selection-container {
@@ -451,10 +455,10 @@ p#play-counter {
 		margin-bottom: 1em;
 	}
 	
-	div#game-container {
-    	position: relative;
-    	padding: 0 10px;
-	}
+	/* div#game-container { */
+    	/* position: relative; */
+    	/* padding: 0 10px; */
+	/* } */
 	
 	#canvas-container {
 		width: auto;
