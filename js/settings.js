@@ -6,8 +6,8 @@ var Settings = {
 	SnakeLenght: 5,
 	InitialPosition: { x: 2, y: 2	},
 	BlockSize: 20,
-	BlockColor: '#822900',
-	FoodColor: 'red',
+	BlockColor: '#338bff',
+	FoodColor: '#ff3333',
 	ScoreValue: 12,
 	ScoreValueBorder: 8,
 	ScoreBasedOnTime: false,
@@ -18,5 +18,4 @@ var Settings = {
 	GetRankingUrl: 'http://fifteen.altervista.org/get.php',
 	AddGameCountUrl: 'http://fifteen.altervista.org/add-game.php',
 	GetGameCountUrl: 'http://fifteen.altervista.org/get-game.php'
-	
 }
