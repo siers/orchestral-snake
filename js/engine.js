@@ -417,7 +417,7 @@ $(document).on('keydown', function(e){
   Game.PreviousArrowDirection = d;
   //Arrow keys
   //Directions: 1 : 'right', 2 : 'up', 3 : 'left', 4 : 'down'
-  if((c == 37 || c == 100)&& d != 1) {
+  if((c == 37 || c == 100) && d != 1) {
     //Left arrow
     Game.Direction = 3;
     if(Game.Paused && !Game.New){
@@ -459,6 +459,12 @@ $(document).on('keydown', function(e){
     if(!Game.Paused){
       Game.Pause();
     }
+  } else if (e.originalEvent.code == "PageUp") {
+    Game.Direction = Game.Direction % 4 + 1;
+  } else if (e.originalEvent.code == "PageDown") {
+    Game.Direction = (Game.Direction + 4 - 2) % 4 + 1;
+  } else if (true) {
+    console.log(`missing handling for: ${c}`, e.originalEvent.code)
   }
 });
 
