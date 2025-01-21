@@ -329,8 +329,6 @@ Game.UpdateDimensions(
   300
 );
 
-Settings.BlockSize = 20;
-
 Game.Init();
 
 //Click on play button
@@ -415,38 +413,31 @@ $(document).on('keydown', function(e){
   var c = e.keyCode;
   var d = Game.Direction;
   Game.PreviousArrowDirection = d;
+  var restart = function () { if(Game.Paused) Game.Play() }
   //Arrow keys
   //Directions: 1 : 'right', 2 : 'up', 3 : 'left', 4 : 'down'
   if((c == 37 || c == 100) && d != 1) {
     //Left arrow
     Game.Direction = 3;
-    if(Game.Paused && !Game.New){
-      Game.Play();
-    }
+    restart();
     return false;
   }
   else if((c == 38 || c == 104) && d != 4) {
     //Up arrow
     Game.Direction = 2;
-    if(Game.Paused && !Game.New){
-      Game.Play();
-    }
+    restart();
     return false;
   }
   else if((c == 39 || c == 102) && d != 3) {
     //Right arrow
     Game.Direction = 1;
-    if(Game.Paused && !Game.New){
-      Game.Play();
-    }
+    restart();
     return false;
   }
   else if((c == 40 || c == 101) && d != 2) {
     //Down arrow
     Game.Direction = 4;
-    if(Game.Paused && !Game.New){
-      Game.Play();
-    }
+    restart();
     return false;
   }
   else if(c == 13 || c == 32) {
@@ -461,10 +452,12 @@ $(document).on('keydown', function(e){
     }
   } else if (e.originalEvent.code == "PageUp") {
     Game.Direction = Game.Direction % 4 + 1;
+    restart();
   } else if (e.originalEvent.code == "PageDown") {
     Game.Direction = (Game.Direction + 4 - 2) % 4 + 1;
+    restart();
   } else if (true) {
-    console.log(`missing handling for: ${c}`, e.originalEvent.code)
+    console.log(`missing handling for: ${c} / e.originalEvent.code`)
   }
 });
 

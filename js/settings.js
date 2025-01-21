@@ -1,11 +1,10 @@
 /** Game Settings **/
 
 var Settings = {
-	
-	FPS: 15,
+	FPS: 10,
 	SnakeLenght: 5,
 	InitialPosition: { x: 2, y: 2	},
-	BlockSize: 20,
+	BlockSize: 30,
 	BlockColor: '#338bff',
 	FoodColor: '#ff3333',
 	ScoreValue: 12,
